@@ -4,4 +4,4 @@ Using a Raspberry Pi and a soil moisture sensor to send Slack notifications when
 ## To do:
 * Buy a moisture sensor for the Pi
 * Check the code works
-* Update this accordingly
+* Update this accordingly.
