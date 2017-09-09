@@ -10,7 +10,7 @@ import json
 webhook_url = "ADD_HERE"
 
 def postToSlack():
-    data = '{"attachments":[{"fallback":"Water plant!","pretext":"The soil is too dry!","color":"#1da1f2","fields":[{"title":"The Garden Room plant needs watering!","short":false}]}]}'
+    data = '{"attachments":[{"fallback":"Water plant!","pretext":"The soil is too dry!","color":"#cc0000","fields":[{"title":"The Garden Room plant needs watering!","short":false}]}]}'
     slack = urllib2.Request(webhook_url, data, {'Content-Type': 'application/json'})
     post = urllib2.urlopen(slack)
     post.close()
