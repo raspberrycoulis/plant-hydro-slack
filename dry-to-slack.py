@@ -17,10 +17,11 @@ def postToSlack():
 
 def moisture(channel):
     if GPIO.input(channel):
-            #print "LED off"    # Uncomment to show feedback in console
+            #print "Soil is dry!"    # Uncomment to show feedback in console
             postToSlack()
     else:
-            #print "LED on"     # Uncomment to show feedback in console
+            #print "Soil is moist"   # Uncomment to show feedback in console
+            return "Soil is moist"
 
 GPIO.setmode(GPIO.BCM)
 
