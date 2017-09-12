@@ -41,7 +41,9 @@ Your script is now good to go.
 ## Running the script automatically on boot using systemd
 In order to run the script automatically when the Raspberry Pi boots, I recommend using systemd to run it as a service:
 
-`sudo nano /lib/systemd/system/moisturesensor.service`
+```
+$ sudo nano /lib/systemd/system/moisturesensor.service
+```
 
 Then add the following:
 
