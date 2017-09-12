@@ -66,9 +66,9 @@ The parts to check are the `ExecStart` command as this assumes the `dry-to-slack
 Once you have done this, `Ctrl+X` to exit and `Y` to save then run:
 
 ```
-sudo chmod 644 /lib/systemd/system/moisturesensor.service
-sudo systemctl daemon-reload
-sudo systemctl enable moisturesensor.service
+$ sudo chmod 644 /lib/systemd/system/moisturesensor.service
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable moisturesensor.service
 ```
 
 You can `sudo reboot` or simply run `sudo systemctl start moisturesensor.service` to start the script. Check the status by running `sudo systemctl status moisturesensor.service`.
