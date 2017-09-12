@@ -16,7 +16,7 @@ import httplib, urllib
 import urllib2
 import json
 
-# Slack webhook - get this from https://api.slack.com/custom-integrations
+# Slack webhook - get this from https://api.slack.com/custom-integrations/incoming-webhooks
 webhook_url = "ADD_HERE"
 
 # This is the function that calls the Slack webhook to notify you:
