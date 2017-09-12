@@ -5,7 +5,7 @@ Using a Raspberry Pi and a soil moisture sensor to send Slack notifications when
 
 ## Required parts:
 * A Raspberry Pi (I used a Pi Zero W for convenience)
-* A soil moisture sensor (available at [ModMyPi](https://www.modmypi.com/electronics/sensors-347/soil-moisture-sensor/?r=raspberrycoulis) and on [eBay](https://www.ebay.co.uk/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR0.TRC0.H0.Xsoil+moisture+sensor.TRS0&_nkw=soil+moisture+sensor&_sacat=0)
+* A soil moisture sensor (available at [ModMyPi](https://www.modmypi.com/electronics/sensors-347/soil-moisture-sensor/?r=raspberrycoulis) and on [eBay](https://www.ebay.co.uk/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR0.TRC0.H0.Xsoil+moisture+sensor.TRS0&_nkw=soil+moisture+sensor&_sacat=0))
 * A [Slack](https://slack.com/) account
 * A [webhook intergation](https://api.slack.com/custom-integrations/incoming-webhooks)
 * This code.
