@@ -16,6 +16,15 @@ import httplib, urllib
 import urllib2
 import json
 
+# Set the GPIO mode:
+GPIO.setmode(GPIO.BCM)
+
+# Define the GPIO pin that the moisture sensor (D0 on the sensor) is connected to:
+channel = 17
+
+# Set the GPIO pin above as an input and set the internal pull-up resistor down:
+GPIO.setup(channel, GPIO.IN,pull_up_down=GPIO.PUD_DOWN)
+
 # Slack webhook - get this from https://api.slack.com/custom-integrations/incoming-webhooks
 webhook_url = "ADD_HERE"
 
@@ -26,30 +35,12 @@ def postToSlack():
     post = urllib2.urlopen(slack)
     post.close()
 
-# This is the function that checks if the soil is moist or dry:
-def moisture(channel):
-    if GPIO.input(channel):
-            #print "Soil is dry!"    # Uncomment to show feedback in console
-            postToSlack()
-    else:
-            #print "Soil is moist"   # Uncomment to show feedback in console
-            return "Soil is moist"
-
-# Set the GPIO mode:
-GPIO.setmode(GPIO.BCM)
-
-# Define the GPIO pin that the moisture sensor (D0 on the sensor) is connected to:
-channel = 17
-
-# Set the GPIO pin above as an input:
-GPIO.setup(channel, GPIO.IN)
-
-# Check whether the GPIO pin is high or low. The bouncetime is the minimum time between two callbacks (default=300) in millseconds:
-GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)
-
-# This line assigns a function to the GPIO pin so that when the above line tells us there is a change on the pin, run this function:
-GPIO.add_event_callback(channel, moisture)
-
-# Run the code in an infinite loop and tells the script to wait 0.1 seconds, this is so the script doesnt hog all of the CPU:
+# Run the code in an infinite loop. If the soil is dry, a Slack notification is triggered:
 while True:
-        time.sleep(0.1)
+    if GPIO.input(channel)==False:
+        #print('Soil is moist')     # Uncomment to print console commands
+        time.sleep(900)             # Sleep for 15 minutes (900 seconds)
+    else:
+        #print('Soil is dry!')      # Uncomment to print console commands
+        postToSlack()               # Trigger the Slack webhook notification
+        time.sleep(2700)            # Sleep for 45 minutes (2700 seconds)
